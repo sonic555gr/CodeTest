@@ -15,6 +15,8 @@
 @interface CTNetworkLibrary()
 @property(nonatomic, strong)NSURLSession *session;
 @property(nonatomic, strong)NSURLSession *imageSession;
+@property(nonatomic, strong)CTResultParser *parser;
+
 @end
 
 @implementation CTNetworkLibrary
@@ -33,9 +35,11 @@
 {
     self = [super init];
     if (self) {
+        _parser = [[CTResultParser alloc] init];
         _session = [NSURLSession sharedSession];
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        // We could, at this stage listen for memory warnings and clear the cache explicitly. No time though.
+        
+        //We are creating a 50Mb Disk cache for the images.
         configuration.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:50 * 1024 *1024 diskPath:nil];
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidReceiveMemoryWarningNotification object:nil queue:[NSOperationQueue mainQueue]usingBlock:^(NSNotification * _Nonnull note) {
             [_imageSession.configuration.URLCache removeAllCachedResponses];
@@ -48,8 +52,8 @@
 
 - (void)searchResultsForQuery:(NSString *)query completion:(CTNetworkLibrarySearchResultsCompletionBlock)completion
 {
-    [self cancelAllOutstandingTasksWithCompletion:^(){
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self cancelAllOutstandingTasksWithCompletion:^()
+    {
         NSURL *url = [self urlForQuery:query];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         NSURLSessionDataTask *dataTask = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -78,10 +82,16 @@
              }
              */
 
-            CTResultParser *parser = [[CTResultParser alloc] init];
-            NSArray *dictionariesArray = [parser resultsDictionariesFromData:data];
-            NSArray *results = [parser resultsWithArrayOfDictionaries:dictionariesArray];
-            dispatch_async(dispatch_get_main_queue(), ^{
+            // Since we are canceling any seach opperations we don't want to try to parse empty data or even return the completion block if the task is canceled. so we just return
+            if (error.code == -999) // Cancelled
+            {
+                return;
+            }
+            
+            NSArray *dictionariesArray = [_parser resultsDictionariesFromData:data];
+            NSArray *results = [_parser resultsWithArrayOfDictionaries:dictionariesArray];
+            dispatch_async(dispatch_get_main_queue(), ^
+            {
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 if (completion)
                 {
@@ -103,7 +113,8 @@
         }
         if (completion)
         {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^
+            {
                 completion(image, error);
             });
         }

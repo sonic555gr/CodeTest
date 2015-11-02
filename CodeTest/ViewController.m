@@ -21,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _networkLibrary = [CTNetworkLibrary sharedLibrary];
-
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +56,7 @@
     CTResult *result = _data[indexPath.row];
     cell.textLabel.text = result.trackName;
     cell.detailTextLabel.text = result.albumName;
-
+    
     cell.imageView.alpha = 0;
     __weak typeof(cell) weakCell = cell;
     [_networkLibrary asyncronousImageWithURL:result.artworkUrl completion:^(UIImage *image, NSError *error) {
@@ -69,7 +67,7 @@
             weakCell.imageView.alpha = 1.0f;
         }];
     }];
-    
+
     return cell;
 }
 
@@ -85,7 +83,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    [super prepareForSegue:segue sender:sender];
     [self.searchBar resignFirstResponder];
     NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
     CTDetailsViewController *detailsViewController = segue.destinationViewController;
