@@ -38,9 +38,8 @@
         _parser = [[CTResultParser alloc] init];
         _session = [NSURLSession sharedSession];
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        
         //We are creating a 50Mb Disk cache for the images.
-        configuration.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:50 * 1024 *1024 diskPath:nil];
+        configuration.URLCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:50 * 1024 * 1024 diskPath:nil];
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidReceiveMemoryWarningNotification object:nil queue:[NSOperationQueue mainQueue]usingBlock:^(NSNotification * _Nonnull note) {
             [_imageSession.configuration.URLCache removeAllCachedResponses];
         }];
@@ -105,7 +104,20 @@
 
 - (void)asyncronousImageWithURL:(NSURL *)url completion:(CTNetworkLibraryImageCompletionBlock)completion
 {
-    NSURLSessionDataTask *imageTask = [_imageSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    
+    NSURLRequest *imageRequest = [[NSURLRequest alloc] initWithURL:url];
+    NSCachedURLResponse *cachedResponse = [_imageSession.configuration.URLCache cachedResponseForRequest:imageRequest];
+    if (cachedResponse.data)
+    {
+        UIImage *image = [UIImage imageWithData:cachedResponse.data];
+        if (image && completion)
+        {
+            completion(image, nil);
+            return;
+        }
+    }
+    
+    NSURLSessionDataTask *imageTask = [_imageSession dataTaskWithRequest:imageRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         UIImage *image = nil;
         if (data)
         {
@@ -136,8 +148,7 @@
 
 - (NSURL *)urlForQuery:(NSString *)query
 {
-    if (!query || query.length == 0)
-        return nil;
+    if (!query || query.length == 0) { return nil; }
     NSURLComponents *components = [NSURLComponents componentsWithString:CTNetworkLibrarySongsBaseURL];
     
     NSString *parameterQuery = [NSString stringWithFormat:@"term=%@",[query stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
