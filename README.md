@@ -10,3 +10,6 @@ HTTPURLResponses and status codes are not being handled so in case of a 400 500 
 
 It would also be good to have a conectivity manager to tell us when we have an internet connection available or not.
 
+Unit testing in this app is limited. I could test for the URLSession making the requests but it would require a mocking framework to go with. The tests are indicative of my ability to do unit testing to a satisfing level.
+
+The application is not available for iOS 8. The use of stack views prevents the app from being executed on an iOS 8 environment. While I still have the knowledge on how to make it look the same without them, It helped reduce the development time by a lot. 
