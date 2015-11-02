@@ -13,7 +13,13 @@
 		73C4698B1BE25E2F00FF7484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C469891BE25E2F00FF7484 /* Main.storyboard */; };
 		73C4698D1BE25E2F00FF7484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73C4698C1BE25E2F00FF7484 /* Assets.xcassets */; };
 		73C469901BE25E3000FF7484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C4698E1BE25E3000FF7484 /* LaunchScreen.storyboard */; };
-		73C4699B1BE25E3000FF7484 /* CodeTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C4699A1BE25E3000FF7484 /* CodeTestTests.m */; };
+		73C469A71BE2695F00FF7484 /* CTNetworkLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C469A61BE2695F00FF7484 /* CTNetworkLibrary.m */; settings = {ASSET_TAGS = (); }; };
+		73C469AD1BE26B9D00FF7484 /* CTResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C469AC1BE26B9D00FF7484 /* CTResult.m */; settings = {ASSET_TAGS = (); }; };
+		73C469B01BE26C5A00FF7484 /* CTResultParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C469AF1BE26C5A00FF7484 /* CTResultParser.m */; settings = {ASSET_TAGS = (); }; };
+		73C469B21BE26F3A00FF7484 /* CTResultParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C469B11BE26F3A00FF7484 /* CTResultParserTests.m */; settings = {ASSET_TAGS = (); }; };
+		73C469B51BE271AE00FF7484 /* Results.json in Resources */ = {isa = PBXBuildFile; fileRef = 73C469B41BE271AE00FF7484 /* Results.json */; settings = {ASSET_TAGS = (); }; };
+		73C469B71BE38F0F00FF7484 /* CTNetworkLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C469B61BE38F0F00FF7484 /* CTNetworkLibraryTests.m */; settings = {ASSET_TAGS = (); }; };
+		73C469BD1BE3B20E00FF7484 /* CTDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C469BC1BE3B20E00FF7484 /* CTDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +44,18 @@
 		73C4698F1BE25E3000FF7484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73C469911BE25E3000FF7484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73C469961BE25E3000FF7484 /* CodeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73C4699A1BE25E3000FF7484 /* CodeTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeTestTests.m; sourceTree = "<group>"; };
 		73C4699C1BE25E3000FF7484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73C469A51BE2695F00FF7484 /* CTNetworkLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkLibrary.h; sourceTree = "<group>"; };
+		73C469A61BE2695F00FF7484 /* CTNetworkLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkLibrary.m; sourceTree = "<group>"; };
+		73C469AB1BE26B9D00FF7484 /* CTResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTResult.h; sourceTree = "<group>"; };
+		73C469AC1BE26B9D00FF7484 /* CTResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTResult.m; sourceTree = "<group>"; };
+		73C469AE1BE26C5A00FF7484 /* CTResultParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTResultParser.h; sourceTree = "<group>"; };
+		73C469AF1BE26C5A00FF7484 /* CTResultParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTResultParser.m; sourceTree = "<group>"; };
+		73C469B11BE26F3A00FF7484 /* CTResultParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTResultParserTests.m; sourceTree = "<group>"; };
+		73C469B41BE271AE00FF7484 /* Results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Results.json; sourceTree = "<group>"; };
+		73C469B61BE38F0F00FF7484 /* CTNetworkLibraryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkLibraryTests.m; sourceTree = "<group>"; };
+		73C469BB1BE3B20E00FF7484 /* CTDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDetailsViewController.h; sourceTree = "<group>"; };
+		73C469BC1BE3B20E00FF7484 /* CTDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +101,17 @@
 				73C469841BE25E2F00FF7484 /* AppDelegate.m */,
 				73C469861BE25E2F00FF7484 /* ViewController.h */,
 				73C469871BE25E2F00FF7484 /* ViewController.m */,
+				73C469BB1BE3B20E00FF7484 /* CTDetailsViewController.h */,
+				73C469BC1BE3B20E00FF7484 /* CTDetailsViewController.m */,
 				73C469891BE25E2F00FF7484 /* Main.storyboard */,
 				73C4698C1BE25E2F00FF7484 /* Assets.xcassets */,
 				73C4698E1BE25E3000FF7484 /* LaunchScreen.storyboard */,
 				73C469911BE25E3000FF7484 /* Info.plist */,
 				73C469801BE25E2F00FF7484 /* Supporting Files */,
+				73C469A51BE2695F00FF7484 /* CTNetworkLibrary.h */,
+				73C469A61BE2695F00FF7484 /* CTNetworkLibrary.m */,
+				73C469AB1BE26B9D00FF7484 /* CTResult.h */,
+				73C469AC1BE26B9D00FF7484 /* CTResult.m */,
 			);
 			path = CodeTest;
 			sourceTree = "<group>";
@@ -98,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				73C469811BE25E2F00FF7484 /* main.m */,
+				73C469AE1BE26C5A00FF7484 /* CTResultParser.h */,
+				73C469AF1BE26C5A00FF7484 /* CTResultParser.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,10 +129,20 @@
 		73C469991BE25E3000FF7484 /* CodeTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				73C4699A1BE25E3000FF7484 /* CodeTestTests.m */,
+				73C469B31BE2715700FF7484 /* Mock */,
 				73C4699C1BE25E3000FF7484 /* Info.plist */,
+				73C469B11BE26F3A00FF7484 /* CTResultParserTests.m */,
+				73C469B61BE38F0F00FF7484 /* CTNetworkLibraryTests.m */,
 			);
 			path = CodeTestTests;
+			sourceTree = "<group>";
+		};
+		73C469B31BE2715700FF7484 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				73C469B41BE271AE00FF7484 /* Results.json */,
+			);
+			name = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C469B51BE271AE00FF7484 /* Results.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				73C469881BE25E2F00FF7484 /* ViewController.m in Sources */,
+				73C469AD1BE26B9D00FF7484 /* CTResult.m in Sources */,
+				73C469BD1BE3B20E00FF7484 /* CTDetailsViewController.m in Sources */,
+				73C469B01BE26C5A00FF7484 /* CTResultParser.m in Sources */,
 				73C469851BE25E2F00FF7484 /* AppDelegate.m in Sources */,
 				73C469821BE25E2F00FF7484 /* main.m in Sources */,
+				73C469A71BE2695F00FF7484 /* CTNetworkLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73C4699B1BE25E3000FF7484 /* CodeTestTests.m in Sources */,
+				73C469B21BE26F3A00FF7484 /* CTResultParserTests.m in Sources */,
+				73C469B71BE38F0F00FF7484 /* CTNetworkLibraryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodeTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alkimo.CodeTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodeTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alkimo.CodeTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
